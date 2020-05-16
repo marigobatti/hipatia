@@ -1,44 +1,52 @@
 {
-  "name": "root",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
-  "scripts": {
-    "bootstrap": "lerna bootstrap --use-workspaces",
-    "build": "lerna exec --parallel -- babel --root-mode upward src -d lib --extensions \".ts,.tsx\" --source-maps inline --ignore **/*.story.ts,**/*.spec.ts",
-    "dev": "start-storybook -p 5555 -c .storybook"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
-    "@babel/preset-typescript": "^7.9.0",
-    "@storybook/addon-info": "^5.3.18",
-    "@storybook/react": "^5.3.18",
-    "@types/jest": "^25.2.2",
-    "@types/react": "^16.9.35",
-    "@types/react-dom": "^16.9.8",
-    "@types/styled-components": "^5.1.0",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-styled-components": "^1.10.7",
-    "babel-preset-react-app": "^9.1.2",
-    "jest": "^26.0.1",
-    "lerna": "^3.21.0",
-    "react-docgen-typescript-loader": "^3.7.2",
-    "react-docgen-typescript-webpack-plugin": "^1.1.0",
-    "ts-jest": "^25.5.1",
-    "ts-loader": "^7.0.4",
-    "typescript": "^3.9.2",
-    "webpack": "^4.43.0"
-  },
-  "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "styled-components": "^5.1.0"
-  }
+    "name": "root",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "bootstrap": "lerna bootstrap --use-workspaces",
+        "about:build": "echo 'Using --root-mode upward tells Babel the node_modules are located in the root instead of nested inside each of the individual packages. This prevents each package from having the same node_modules and extracts them up to the root.'",
+        "build": "lerna exec --parallel -- babel --root-mode upward src -d lib --extensions \".ts,.tsx\" --source-maps inline --ignore **/*.story.ts,**/*.spec.ts",
+        "about:dev": "echo 'starts storybook that allow us to view components rendered'",
+        "dev": "start-storybook -p 5555 -c .storybook",
+        "coverage": "jest --coverage",
+        "unit": "jest"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.9.6",
+        "@babel/plugin-proposal-class-properties": "^7.8.3",
+        "@babel/preset-env": "^7.9.6",
+        "@babel/preset-react": "^7.9.4",
+        "@babel/preset-typescript": "^7.9.0",
+        "@storybook/addon-info": "^5.3.18",
+        "@storybook/react": "^5.3.18",
+        "@types/jest": "^25.2.2",
+        "@types/react": "^16.9.35",
+        "@types/react-dom": "^16.9.8",
+        "@types/react-test-renderer": "^16.9.2",
+        "@types/styled-components": "^5.1.0",
+        "awesome-typescript-loader": "^5.2.1",
+        "babel-core": "7.0.0-bridge.0",
+        "babel-jest": "^26.0.1",
+        "babel-loader": "^8.1.0",
+        "babel-plugin-styled-components": "^1.10.7",
+        "jest": "^26.0.1",
+        "jest-haste-map": "^26.0.1",
+        "jest-resolve": "^26.0.1",
+        "jest-styled-components": "^7.0.2",
+        "lerna": "^3.21.0",
+        "react-docgen-typescript-loader": "^3.7.2",
+        "react-docgen-typescript-webpack-plugin": "^1.1.0",
+        "react-test-renderer": "^16.13.1",
+        "ts-loader": "^7.0.4",
+        "typescript": "^3.9.2",
+        "webpack": "^4.43.0"
+    },
+    "dependencies": {
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "styled-components": "^5.1.0"
+    }
 }
