@@ -1,8 +1,13 @@
 import React from 'react';
 
-import { storiesOf } from '@storybook/react';
-
 import Button from './';
 
 
-storiesOf('Button', module).add('default', () => <Button>{'Button'}</Button>);
+export default {
+    component: Button,
+    title: 'Design System|Button',
+};
+
+export const primary = () => <Button>{'Button'}</Button>;
+
+export const secondary = () => <Button variant="secondary">{'Button'}</Button>;

@@ -1,14 +1,59 @@
-import styled from 'styled-components';
+import React from 'react';
+import styled, { css } from 'styled-components';
+
+import { spacing } from '@hipatia/theme';
 
 
-const Button = styled.button`
-    background: red;
-    color: #fff;
+const APPEARANCES = {
+    PRIMARY: 'primary',
+    SECONDARY: 'secondary',
+};
+
+const StyledButton = styled.button<ButtonProps>`
+    background-color: #000;
     border-radius: 4px;
+    color: #fff;
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: 300;
-    padding: 9px 36px;
+    flex-shrink: 0;
+    font-size: 0.88rem;
+    font-weight: 500;
+    height: 40px;
+    line-height: 38px;
+    min-width: 200px;
+    outline: none;
+    overflow: hidden;
+    padding: 0 ${spacing.extraLarge};
+    text-align: center;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all 0.2s ease 0s;
+    user-select: none;
+    white-space: nowrap;
+    :hover {
+        color: #000;
+        border: 1px solid #000;
+        background-color: #fff;
+    }
+    ${props =>
+        props.variant === APPEARANCES.SECONDARY &&
+        css`
+            color: #666;
+            background-color: white;
+            border: 1px solid #eaeaea;
+            :hover {
+                color: #fff;
+                border: 1px solid #000;
+                background-color: #000;
+            }
+        `}
 `;
+
+const Button = (props: ButtonProps) => <StyledButton {...props} />;
+
+interface ButtonProps {
+    disabled?: boolean;
+    variant?: string;
+    children?: string;
+}
 
 export default Button;
