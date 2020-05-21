@@ -1,8 +1,15 @@
 import React from 'react';
 
-import { storiesOf } from '@storybook/react';
-
 import Input from './';
 
 
-storiesOf('Input', module).add('default', () => <Input placeholder="Hello World!" />);
+export default {
+    component: Input,
+    title: 'Design System|Input',
+};
+
+export const placeholder = () => <Input id="email" label="Email" placeholder="user@gmail.com" />;
+
+export const disabled = () => (
+    <Input disabled id="email" label="Email" placeholder="user@gmail.com" />
+);
