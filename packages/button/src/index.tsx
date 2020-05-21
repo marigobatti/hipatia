@@ -4,10 +4,7 @@ import styled, { css } from 'styled-components';
 import { spacing } from '@hipatia/theme';
 
 
-const APPEARANCES = {
-    PRIMARY: 'primary',
-    SECONDARY: 'secondary',
-};
+type Appearances = 'primary' | 'secondary';
 
 const StyledButton = styled.button<ButtonProps>`
     background-color: #000;
@@ -35,7 +32,7 @@ const StyledButton = styled.button<ButtonProps>`
         background-color: #fff;
     }
     ${props =>
-        props.variant === APPEARANCES.SECONDARY &&
+        props.variant === 'secondary' &&
         css`
             color: #666;
             background-color: white;
@@ -48,12 +45,12 @@ const StyledButton = styled.button<ButtonProps>`
         `}
 `;
 
-const Button = (props: ButtonProps) => <StyledButton {...props} />;
-
-interface ButtonProps {
+export interface ButtonProps {
     disabled?: boolean;
-    variant?: string;
-    children?: string;
+    variant?: Appearances;
+    children?: React.ReactNode;
 }
+
+export const Button = (props: ButtonProps) => <StyledButton {...props} />;
 
 export default Button;
